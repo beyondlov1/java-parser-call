@@ -103,16 +103,12 @@ public class CallMain {
                 sb.append("-");
                 sb.append(",");
                 sb.append("-");
-                sb.append(",");
-                sb.append("-");
                 sb.append("\n");
                 continue;
             }
             Optional<AnnotationExpr> requestMapping = end.getMethodDeclaration().getAnnotationByName("RequestMapping");
 
             sb.append(simpleMethod(toUpMethod));
-            sb.append(",");
-            sb.append(simpleMethod(end.getMethodFullName()));
             sb.append(",");
             if (requestMapping.isPresent()){
                 String path = requestMapping.get().asNormalAnnotationExpr().getPairs().get(0).getValue().asStringLiteralExpr().asString();
